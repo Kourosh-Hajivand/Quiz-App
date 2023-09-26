@@ -1,0 +1,22 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kourosh-Hajivand/TypeScript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kourosh-Hajivand/TypeScript/issues"
+  },
+  "homepage": "https://github.com/Kourosh-Hajivand/TypeScript#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
