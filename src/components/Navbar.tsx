@@ -9,8 +9,17 @@ function Navbar() {
   };
   return (
     <div className="w-full max-w-[1080px] mx-auto sticky top-5 bg-white shadow-lg dark:shadow-none dark:bg-CMDARK py-3  left-0 rounded-2xl px-6 flex items-center justify-between">
-      <img src={darkMode ? "/Logo.png" : "/Logo1.png"} width={48} height={48} />
-      <div
+      <div className="flex items-center gap-5">
+        <img
+          src={darkMode ? "/Logo.png" : "/Logo1.png"}
+          width={48}
+          height={48}
+        />
+      </div>
+      <h1 className="text-2xl text-CMDARK dark:text-white font-bold">
+        Quiz Game
+      </h1>
+      <button
         onClick={ToogleDarkMode}
         className="flex items-center justify-center"
       >
@@ -19,7 +28,7 @@ function Navbar() {
         ) : (
           <Moon size="24" className="text-CMDARK" />
         )}
-      </div>
+      </button>
     </div>
   );
 }

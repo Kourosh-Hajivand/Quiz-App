@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .DificaltyBtn {
+    @apply w-full border-2 border-transparent hover:border-CMDARK/20 dark:hover:border-white/20 dark:text-white rounded-2xl text-CMDARK/80 text-2xl py-4 font-semibold shadow-lg bg-white dark:bg-CMDARK duration-150 hover:text-white;
+  }
+}
