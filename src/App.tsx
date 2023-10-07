@@ -4,6 +4,7 @@ import MainLayout from "./components/layout/MainLayout";
 import { useGetCategory } from "./util/hook/useGetCategory";
 import CategoryCardLoading from "./components/CategoryCardLoading";
 import { ArrowCircleLeft } from "iconsax-react";
+import useGetQuestion from "./util/hook/useGetQuestion";
 
 interface TriviaCategory {
   id: number;
@@ -16,11 +17,18 @@ function App() {
   const [SelectedCat, setSelectedCat] = useState<number | null>(null);
   const [difficulty, setDifficulty] = useState<string | null>(null);
   const [step, setstep] = useState(1);
+  const questions = useGetQuestion({
+    categoryId: SelectedCat,
+    difficulty: difficulty,
+  });
 
   useEffect(() => {
+    if (questions.isFetched) {
+      console.log(questions.data);
+    }
+  });
+  useEffect(() => {
     if (data.isFetched) {
-      console.log(data.data);
-
       const filterd = [21, 22, 19, 23, 9, 30];
       const filtered = data.data.trivia_categories.filter(
         (item: TriviaCategory) => {
@@ -41,7 +49,7 @@ function App() {
           />
         ) : null}
         <h1 className="text-CMDARK dark:text-white text-2xl font-semibold select-none ">
-          {step === 1 ? "Choose a Category :" : "Choose a Difficulty"}
+          {step === 1 ? "Choose a Category :" : step ===2 ? "Choose a Difficulty" :  }
         </h1>
       </div>
       {step === 1 ? (
@@ -79,7 +87,7 @@ function App() {
             <button
               className="DificaltyBtn hover:bg-green-500"
               onClick={() => {
-                setDifficulty("Easy");
+                setDifficulty("easy");
                 setstep(3);
               }}
             >
@@ -87,7 +95,7 @@ function App() {
             </button>
             <button
               onClick={() => {
-                setDifficulty("Medium");
+                setDifficulty("medium");
                 setstep(3);
               }}
               className="DificaltyBtn hover:bg-orange-500"
@@ -96,7 +104,7 @@ function App() {
             </button>
             <button
               onClick={() => {
-                setDifficulty("Hard");
+                setDifficulty("hard");
                 setstep(3);
               }}
               className="DificaltyBtn hover:bg-[#FF5341]"
