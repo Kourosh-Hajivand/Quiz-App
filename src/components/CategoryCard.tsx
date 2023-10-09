@@ -24,7 +24,7 @@ const CategoryCard: React.FC<Props> = ({ id, SelectCategory }) => {
   return (
     <div
       onClick={() => SelectCategory(id)}
-      className="bg-white dark:bg-CMDARK shadow-lg hover:shadow-xl dark:shadow-none px-4 py-6 rounded-2xl group mt-5 select-none duration-150"
+      className="bg-white dark:bg-CMDARK shadow-lg hover:shadow-xl dark:shadow-none px-4 py-6 rounded-2xl group mt-5 select-none duration-150 cursor-pointer"
     >
       <div className="w-[80%] h-[150px] relative ">
         <img

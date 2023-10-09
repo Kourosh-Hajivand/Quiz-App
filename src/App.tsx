@@ -49,7 +49,11 @@ function App() {
           />
         ) : null}
         <h1 className="text-CMDARK dark:text-white text-2xl font-semibold select-none ">
-          {step === 1 ? "Choose a Category :" : step ===2 ? "Choose a Difficulty" :  }
+          {step === 1
+            ? "Choose a Category :"
+            : step === 2
+            ? "Choose a Difficulty"
+            : ""}
         </h1>
       </div>
       {step === 1 ? (
