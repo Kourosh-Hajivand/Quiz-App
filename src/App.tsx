@@ -24,11 +24,6 @@ function App() {
   });
 
   useEffect(() => {
-    if (questions.isFetched) {
-      console.log(questions.data);
-    }
-  });
-  useEffect(() => {
     if (data.isFetched) {
       const filterd = [21, 22, 19, 23, 9, 30];
       const filtered = data.data.trivia_categories.filter(
@@ -136,7 +131,7 @@ function App() {
         </div>
       ) : (
         <div className="my-6">
-          <QuestionPart />
+          <QuestionPart data={questions.data} />
         </div>
       )}
     </MainLayout>
