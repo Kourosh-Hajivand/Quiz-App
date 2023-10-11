@@ -5,6 +5,7 @@ import { useGetCategory } from "./util/hook/useGetCategory";
 import CategoryCardLoading from "./components/CategoryCardLoading";
 import { ArrowCircleLeft } from "iconsax-react";
 import useGetQuestion from "./util/hook/useGetQuestion";
+import QuestionPart from "./components/QuestionPart";
 
 interface TriviaCategory {
   id: number;
@@ -48,13 +49,29 @@ function App() {
             className="text-CMDARK dark:text-white cursor-pointer"
           />
         ) : null}
-        <h1 className="text-CMDARK dark:text-white text-2xl font-semibold select-none ">
-          {step === 1
-            ? "Choose a Category :"
-            : step === 2
-            ? "Choose a Difficulty"
-            : ""}
-        </h1>
+        {step > 2 ? (
+          questions.isFetched && questions.data ? (
+            <div className="w-full flex items-center  text-2xl justify-between">
+              <h5 className="font-semibold uppercase">
+                {questions.data[0].category}
+              </h5>
+              <h5 className="font-semibold uppercase">{difficulty}</h5>
+            </div>
+          ) : (
+            <div className="w-full flex items-center justify-between animate-pulse">
+              <div className="h-8 w-[200px] rounded-full bg-CMDARK"></div>
+              <div className="h-8 w-[150px] rounded-full bg-CMDARK "></div>
+            </div>
+          )
+        ) : (
+          <h1 className="text-CMDARK dark:text-white text-2xl font-semibold select-none ">
+            {step === 1
+              ? "Choose a Category :"
+              : step === 2
+              ? "Choose a Difficulty"
+              : null}
+          </h1>
+        )}
       </div>
       {step === 1 ? (
         <div>
@@ -118,7 +135,9 @@ function App() {
           </div>
         </div>
       ) : (
-        <div></div>
+        <div className="my-6">
+          <QuestionPart />
+        </div>
       )}
     </MainLayout>
   );
